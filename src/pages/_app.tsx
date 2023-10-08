@@ -5,6 +5,8 @@ import { api } from "~/utils/api";
 import "~/styles/globals.css";
 import { createEditorContext } from "../hooks/EditorRefContext";
 import { Languages } from "~/utils/StarterCode";
+import { createProblemContext } from "~/hooks/ProblemContext";
+import { problemSet } from "../utils/ProblemSets";
 
 export const { EditorStoreContextProvider, useEditorStore } =
   createEditorContext({
@@ -14,15 +16,21 @@ export const { EditorStoreContextProvider, useEditorStore } =
     extension: Languages[0]!.extension,
   });
 
+export const { ProblemContextProvider, useProblemData } = createProblemContext(
+  problemSet[0]!,
+);
+
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
   return (
     <SessionProvider session={session}>
-      <EditorStoreContextProvider>
-        <Component {...pageProps} />
-      </EditorStoreContextProvider>
+      <ProblemContextProvider>
+        <EditorStoreContextProvider>
+          <Component {...pageProps} />
+        </EditorStoreContextProvider>
+      </ProblemContextProvider>
     </SessionProvider>
   );
 };

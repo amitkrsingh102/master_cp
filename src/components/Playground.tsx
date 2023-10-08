@@ -4,8 +4,9 @@ import { Languages } from "~/utils/StarterCode";
 import { useEditorStore } from "~/pages/_app";
 import { useState } from "react";
 import { api } from "~/utils/api";
+import { type ProblemType } from "~/hooks/ProblemContext";
 
-const Playground = () => {
+const Playground = ({ currentProblem }: { currentProblem: ProblemType }) => {
   const [editorLanguage, editorLanguageSet] = useEditorStore();
   const [input, inputSet] = useState("");
   const [output, outputSet] = useState("");
@@ -40,9 +41,9 @@ const Playground = () => {
     <div className="md:w-2/3">
       <nav className="flex p-1">
         <div className="flex items-center justify-center p-2">
-          <h1>{"Two Sum"}</h1>
+          <h1>{currentProblem.title}</h1>
         </div>
-        <div className="dropdown dropdown-end ml-auto">
+        <div className="dropdown-end dropdown ml-auto">
           <label tabIndex={0} className="btn m-1">
             {editorLanguage.lang}
           </label>
@@ -112,14 +113,22 @@ const Playground = () => {
         ) : (
           <div className="bg-[rgb(43,43,43)]">
             {/* Input */}
-            <div className="flex flex-col gap-2 p-3">
-              <span>Input: </span>
-              <input
-                className="h-[44px] w-2/5 rounded-md border p-2"
-                onChange={(e) => inputSet(e.target.value)}
-                value={input}
-                placeholder="Input (separated by spaces)"
-              />
+            <div className="flex">
+              <div className="flex w-1/2 flex-col gap-2 p-3">
+                <span>Input: </span>
+                <input
+                  className="h-[44px] rounded-md border p-2"
+                  onChange={(e) => inputSet(e.target.value)}
+                  value={input}
+                  placeholder="Input (separated by spaces)"
+                />
+              </div>
+              <div className="flex w-1/2 flex-col gap-2 p-3">
+                <span>Expected Output: </span>
+                <div className="min-h-[44px] rounded-md border p-2">
+                  {currentProblem.examples[0]?.output}
+                </div>
+              </div>
             </div>
             {/* Output */}
             <div className="flex flex-col gap-2 p-3">
@@ -136,13 +145,6 @@ const Playground = () => {
                   </div>
                 </div>
               )}
-              {/* expected output */}
-              <div className="flex flex-col gap-1">
-                <span>Expected Output: </span>
-                <div className="min-h-[44px] w-2/5 rounded-md border p-2">
-                  1 2 3 4
-                </div>
-              </div>
             </div>
           </div>
         )}

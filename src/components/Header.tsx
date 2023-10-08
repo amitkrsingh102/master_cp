@@ -25,8 +25,10 @@ const Header = () => {
           Problem list
         </Link>
         <Link
-          href={"/problem"}
-          className={`${pathname === "/problem" && "font-bold underline"}`}
+          href={"/problem/101"}
+          className={`${
+            pathname?.includes("/problem/") && "font-bold underline"
+          }`}
         >
           Playground
         </Link>

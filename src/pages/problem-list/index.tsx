@@ -1,10 +1,12 @@
 import Header from "~/components/Header";
-import { problemSet } from "../../components/ProblemSets";
+import { problemSet } from "../../utils/ProblemSets";
+import { useRouter } from "next/router";
 const Problem_List = () => {
+  const router = useRouter();
   return (
     <main>
       <Header />
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto p-1">
         <table className="table">
           {/* head */}
           <thead>
@@ -18,7 +20,13 @@ const Problem_List = () => {
           </thead>
           <tbody>
             {problemSet.map((problem, idx) => (
-              <tr key={idx} className="hover">
+              <tr
+                key={idx}
+                className="hover"
+                onClick={() => {
+                  void router.push(`/problem/${problem.id}`);
+                }}
+              >
                 <th>{idx + 1}</th>
                 <td>{problem.id}</td>
                 <td>DONE</td>
