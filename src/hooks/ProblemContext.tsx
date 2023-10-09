@@ -1,8 +1,16 @@
 import { createContext, useContext, useState } from "react";
 import { problemSet } from "../utils/ProblemSets";
 
-export type ExampleType = {
+type ExampleType = {
   id: number;
+  input: string;
+  output: string;
+};
+
+type RunResultType = {
+  output: string;
+};
+export type TestCaseType = {
   input: string;
   output: string;
 };
@@ -13,6 +21,8 @@ export type ProblemType = {
   description: string;
   examples: ExampleType[];
   constraints: string[];
+  expectedRunOutputs: RunResultType;
+  testCases: TestCaseType[];
 };
 
 export const createProblemContext = (InitialProblem: ProblemType) => {

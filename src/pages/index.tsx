@@ -2,7 +2,6 @@ import { useSession, signIn } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import Header from "~/components/Header";
-import { api } from "~/utils/api";
 
 export default function Home() {
   const { data: sessionData } = useSession();
@@ -15,7 +14,8 @@ export default function Home() {
       </Head>
       <main>
         <Header />
-        <div className="hero min-h-[calc(100vh-68px)] bg-base-200">
+        <div className="custom-bg-img hero min-h-[calc(100vh-68px)]">
+          <div className="min-h-[calc(100vh-68px)] min-w-full bg-[rgba(0,0,0,0.6)]"></div>
           <div className="hero-content text-center">
             <div className="max-w-md">
               <h1 className="text-5xl font-bold">Welcome</h1>

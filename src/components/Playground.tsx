@@ -5,12 +5,14 @@ import { useEditorStore } from "~/pages/_app";
 import { useState } from "react";
 import { api } from "~/utils/api";
 import { type ProblemType } from "~/hooks/ProblemContext";
+import TestCase from "./TestCase";
 
 const Playground = ({ currentProblem }: { currentProblem: ProblemType }) => {
   const [editorLanguage, editorLanguageSet] = useEditorStore();
   const [input, inputSet] = useState("");
   const [output, outputSet] = useState("");
   const [error, errorSet] = useState("");
+  const [submitResults, submitResultsSet] = useState<number>();
 
   const getOutput = api.compile.getOutput.useQuery(
     {
@@ -27,14 +29,19 @@ const Playground = ({ currentProblem }: { currentProblem: ProblemType }) => {
         if (res.data?.error) {
           outputSet("");
           errorSet(res.data.error);
-        } else {
+        } else if (res.data?.output) {
           errorSet("");
-          outputSet(res.data!.output);
+          outputSet(res.data.output);
         }
       } catch (err) {
         errorSet('compilation terminated : "syntax error"');
       }
     });
+  };
+
+  const handleSubmit = () => {
+    const num = Math.random();
+    submitResultsSet(num);
   };
 
   return (
@@ -43,7 +50,7 @@ const Playground = ({ currentProblem }: { currentProblem: ProblemType }) => {
         <div className="flex items-center justify-center p-2">
           <h1>{currentProblem.title}</h1>
         </div>
-        <div className="dropdown-end dropdown ml-auto">
+        <div className="dropdown dropdown-end ml-auto">
           <label tabIndex={0} className="btn m-1">
             {editorLanguage.lang}
           </label>
@@ -101,7 +108,11 @@ const Playground = ({ currentProblem }: { currentProblem: ProblemType }) => {
               "Run"
             )}
           </button>
-          <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-md">
+          <button
+            className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-md"
+            onClick={() => handleSubmit()}
+            disabled={getOutput.isRefetching || getOutput.isFetching}
+          >
             Submit
           </button>
         </div>
@@ -126,13 +137,12 @@ const Playground = ({ currentProblem }: { currentProblem: ProblemType }) => {
               <div className="flex w-1/2 flex-col gap-2 p-3">
                 <span>Expected Output: </span>
                 <div className="min-h-[44px] rounded-md border p-2">
-                  {currentProblem.examples[0]?.output}
+                  {currentProblem.expectedRunOutputs.output}
                 </div>
               </div>
             </div>
             {/* Output */}
             <div className="flex flex-col gap-2 p-3">
-              {/* output */}
               {(output || error) && (
                 <div className="flex flex-col gap-1">
                   <span>Output: </span>
@@ -145,6 +155,17 @@ const Playground = ({ currentProblem }: { currentProblem: ProblemType }) => {
                   </div>
                 </div>
               )}
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              {submitResults &&
+                currentProblem.testCases.map((tc, idx) => (
+                  <TestCase
+                    key={idx}
+                    input={tc.input}
+                    output={tc.output}
+                    coeff={submitResults}
+                  />
+                ))}
             </div>
           </div>
         )}

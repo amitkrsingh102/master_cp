@@ -5,3 +5,7 @@
 .body::-webkit-scrollbar {
   display: hidden;
 }
+.custom-bg-img {
+  background-image: url(../images/andy-holmes-rCbdp8VCYhQ-unsplash.jpg);
+  object-fit: cover;
+}

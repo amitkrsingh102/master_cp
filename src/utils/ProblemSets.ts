@@ -24,6 +24,14 @@ export const problemSet = [
       "-10^9 <= target <= 10^9",
       "Only one valid answer exists.",
     ],
+    expectedRunOutputs: {
+      output: "1 2",
+    },
+    testCases: [
+      { input: "3 3 2 4 6", output: "1 2 " },
+      { input: "4 2 7 11 15 9", output: "0 1 " },
+      { input: "2 3 3 6", output: "0 1 " },
+    ],
   },
   {
     id: 102,
@@ -49,6 +57,14 @@ export const problemSet = [
       "0 <= Node.val <= 9",
       "It is guaranteed that the list represents a number that does not have leading zeros",
     ],
+    expectedRunOutputs: {
+      output: "7 0 8",
+    },
+    testCases: [
+      { input: "3 2 4 3 3 5 6 4", output: "7 0 8" },
+      { input: "1 0 1 0", output: "0" },
+      { input: "7 9 9 9 9 9 9 9 4 9 9 9 9", output: "8 9 9 9 0 0 0 1" },
+    ],
   },
   {
     id: 103,
@@ -73,6 +89,14 @@ export const problemSet = [
       "0 <= s.length <= 5 * 104",
       "s consists of English letters, digits, symbols and spaces.",
     ],
+    expectedRunOutputs: {
+      output: "3",
+    },
+    testCases: [
+      { input: "abcabcbb", output: "3" },
+      { input: "bbbbb", output: "1" },
+      { input: "pwwkew", output: "3" },
+    ],
   },
   {
     id: 104,
@@ -96,6 +120,13 @@ export const problemSet = [
       "1 <= m + n <= 2000",
       "-10^6 <= nums1[i], nums2[i] <= 10^6",
     ],
+    expectedRunOutputs: {
+      output: "2.00000",
+    },
+    testCases: [
+      { input: "2 1 3 1 2", output: "2.00000" },
+      { input: "2 1 2 2 3 4", output: "2.50000" },
+    ],
   },
   {
     id: 105,
@@ -114,6 +145,13 @@ export const problemSet = [
     constraints: [
       "1 <= s.length <= 1000",
       "s consist of only digits and English letters.",
+    ],
+    expectedRunOutputs: {
+      output: "bab",
+    },
+    testCases: [
+      { input: "babad", output: "bab" },
+      { input: "cbbd", output: "bb" },
     ],
   },
   {
@@ -147,6 +185,13 @@ export const problemSet = [
       "s consists of English letters (lower-case and upper-case), ',' and '.'.",
       "1 <= numRows <= 1000",
     ],
+    expectedRunOutputs: {
+      output: "PAHNAPLSIIGYIR",
+    },
+    testCases: [
+      { input: "PAYPALISHIRING 3", output: "PAHNAPLSIIGYIR" },
+      { input: "PAYPALISHIRING 4", output: "PINALSIGYAHRPI" },
+    ],
   },
   {
     id: 107,
@@ -172,6 +217,14 @@ export const problemSet = [
       },
     ],
     constraints: ["-2^31 <= x <= 2^31 - 1"],
+    expectedRunOutputs: {
+      output: "321",
+    },
+    testCases: [
+      { input: "123", output: "321" },
+      { input: "-123", output: "-321" },
+      { input: "120", output: "21" },
+    ],
   },
   {
     id: 108,
@@ -200,6 +253,14 @@ export const problemSet = [
       "0 <= s.length <= 200",
       "s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.",
     ],
+    expectedRunOutputs: {
+      output: "321",
+    },
+    testCases: [
+      { input: "42", output: "42" },
+      { input: "   -42", output: "-42" },
+      { input: "4193 with words", output: "4193" },
+    ],
   },
   {
     id: 109,
@@ -225,6 +286,14 @@ export const problemSet = [
       },
     ],
     constraints: ["-2^31 <= x <= 2^31 - 1"],
+    expectedRunOutputs: {
+      output: "true",
+    },
+    testCases: [
+      { input: "121", output: "true" },
+      { input: "-121", output: "false" },
+      { input: "10", output: "false" },
+    ],
   },
   {
     id: 110,
@@ -255,6 +324,14 @@ export const problemSet = [
       "s contains only lowercase English letters.",
       "p contains only lowercase English letters, '.', and '*'.",
       "It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.",
+    ],
+    expectedRunOutputs: {
+      output: "false",
+    },
+    testCases: [
+      { input: "aa a", output: "false" },
+      { input: "aa a*", output: "true" },
+      { input: "ab .*", output: "true" },
     ],
   },
 ];
