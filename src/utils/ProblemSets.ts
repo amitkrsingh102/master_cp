@@ -32,6 +32,7 @@ export const problemSet = [
       { input: "4 2 7 11 15 9", output: "0 1 " },
       { input: "2 3 3 6", output: "0 1 " },
     ],
+    inputFormat: "Inputs : array length [3] , the array [3,2,4] , target [6]",
   },
   {
     id: 102,
@@ -65,6 +66,8 @@ export const problemSet = [
       { input: "1 0 1 0", output: "0" },
       { input: "7 9 9 9 9 9 9 9 4 9 9 9 9", output: "8 9 9 9 0 0 0 1" },
     ],
+    inputFormat:
+      "Inputs : array length [3] , the array [2,4,5] , array length [3] , the array [5,6,4]",
   },
   {
     id: 103,
@@ -97,6 +100,7 @@ export const problemSet = [
       { input: "bbbbb", output: "1" },
       { input: "pwwkew", output: "3" },
     ],
+    inputFormat: "Inputs : string s [abcabcbb]",
   },
   {
     id: 104,
@@ -127,6 +131,8 @@ export const problemSet = [
       { input: "2 1 3 1 2", output: "2.00000" },
       { input: "2 1 2 2 3 4", output: "2.50000" },
     ],
+    inputFormat:
+      "Inputs : array length [2] , the array [1,3] , array length [2] , the array [1,2]",
   },
   {
     id: 105,
@@ -153,6 +159,7 @@ export const problemSet = [
       { input: "babad", output: "bab" },
       { input: "cbbd", output: "bb" },
     ],
+    inputFormat: "Inputs : string s [babad]",
   },
   {
     id: 106,
@@ -192,6 +199,7 @@ export const problemSet = [
       { input: "PAYPALISHIRING 3", output: "PAHNAPLSIIGYIR" },
       { input: "PAYPALISHIRING 4", output: "PINALSIGYAHRPI" },
     ],
+    inputFormat: "Inputs : string s [PAYPALISHIRING] number of rows [3]",
   },
   {
     id: 107,
@@ -225,6 +233,7 @@ export const problemSet = [
       { input: "-123", output: "-321" },
       { input: "120", output: "21" },
     ],
+    inputFormat: "Inputs : number [123]",
   },
   {
     id: 108,
@@ -261,6 +270,7 @@ export const problemSet = [
       { input: "   -42", output: "-42" },
       { input: "4193 with words", output: "4193" },
     ],
+    inputFormat: "Inputs : string s [42]",
   },
   {
     id: 109,
@@ -294,6 +304,7 @@ export const problemSet = [
       { input: "-121", output: "false" },
       { input: "10", output: "false" },
     ],
+    inputFormat: "Inputs : number [123] ",
   },
   {
     id: 110,
@@ -333,5 +344,6 @@ export const problemSet = [
       { input: "aa a*", output: "true" },
       { input: "ab .*", output: "true" },
     ],
+    inputFormat: "Inputs : string s [aa] string p [a]",
   },
 ];

@@ -46,6 +46,11 @@ const Problem = ({ problem }: { problem: ProblemType }) => {
           </div>
         ))}
       </div>
+      {/* Input format */}
+      <div className="flex flex-col gap-1 rounded-md bg-gray-700 p-2">
+        <div>Input Format :-</div>
+        <div>{problem.inputFormat}</div>
+      </div>
       {/* constraints */}
       <div className="mt-10 flex flex-col gap-1">
         <div className="underline">Constraints :- </div>

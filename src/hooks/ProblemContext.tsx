@@ -23,6 +23,7 @@ export type ProblemType = {
   constraints: string[];
   expectedRunOutputs: RunResultType;
   testCases: TestCaseType[];
+  inputFormat: string;
 };
 
 export const createProblemContext = (InitialProblem: ProblemType) => {

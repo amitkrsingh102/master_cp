@@ -50,7 +50,7 @@ const Playground = ({ currentProblem }: { currentProblem: ProblemType }) => {
         <div className="flex items-center justify-center p-2">
           <h1>{currentProblem.title}</h1>
         </div>
-        <div className="dropdown dropdown-end ml-auto">
+        <div className="dropdown-end dropdown ml-auto">
           <label tabIndex={0} className="btn m-1">
             {editorLanguage.lang}
           </label>

@@ -21,7 +21,7 @@ export default function Home() {
               <h1 className="text-5xl font-bold">Welcome</h1>
               <p className="py-6">
                 {
-                  "Master_CP is more than just an app; it's your companion on the path to programming greatness. With support for a wide range of programming languages, you have the freedom to code in your preferred language."
+                  "Master_CP is more than just an app, it's your companion on the path to programming greatness. With support for a wide range of programming languages, you have the freedom to code in your preferred language."
                 }
               </p>
               <div className="flex justify-center gap-2">

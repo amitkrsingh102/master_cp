@@ -43,7 +43,9 @@ const TestCase = ({ input, output, coeff }: TestCaseProps) => {
 
   useEffect(() => {
     void handleCodeRun();
+
     return () => void handleCodeRun();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coeff]);
 
   return (

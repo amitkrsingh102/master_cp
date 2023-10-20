@@ -1,8 +1,10 @@
 import Header from "~/components/Header";
 import { problemSet } from "../../utils/ProblemSets";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 const Problem_List = () => {
   const router = useRouter();
+  const { data: sessionData } = useSession();
   return (
     <main>
       <Header />
@@ -13,24 +15,32 @@ const Problem_List = () => {
             <tr className="text-md">
               <th>Sl No.</th>
               <th>Problem ID</th>
-              <th>Status</th>
+              {sessionData?.user && <th>Status</th>}
               <th>Title</th>
               <th>Difficulty</th>
             </tr>
           </thead>
           <tbody>
             {problemSet.map((problem, idx) => (
-              <tr
-                key={idx}
-                className="hover"
-                onClick={() => {
-                  void router.push(`/problem/${problem.id}`);
-                }}
-              >
+              <tr key={idx} className="hover">
                 <th>{idx + 1}</th>
                 <td>{problem.id}</td>
-                <td>DONE</td>
-                <td>{problem.title}</td>
+                {sessionData?.user && (
+                  <td>
+                    <input
+                      type="checkbox"
+                      className="checkbox-success checkbox"
+                    />
+                  </td>
+                )}
+                <td
+                  onClick={() => {
+                    void router.push(`/problem/${problem.id}`);
+                  }}
+                  className="cursor-pointer hover:text-zinc-200"
+                >
+                  {problem.title}
+                </td>
                 <td
                   className={`${
                     problem.difficulty === "easy"

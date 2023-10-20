@@ -1,7 +1,9 @@
+import { Prisma } from "@prisma/client";
 import { TRPCClientError } from "@trpc/client";
 import { z } from "zod";
 import {
   createTRPCRouter,
+  protectedProcedure,
   //   protectedProcedure,
   publicProcedure,
 } from "~/server/api/trpc";
@@ -53,10 +55,6 @@ export const compileRouter = createTRPCRouter({
         }
       }
     }),
-
-  //   getSecretMessage: protectedProcedure.query(() => {
-  //     return "you can now see this secret message!";
-  //   }),
 });
 
 const supportedLanguages = z.object({

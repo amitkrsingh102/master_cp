@@ -36,20 +36,28 @@ const Header = () => {
       <div className="flex-none gap-2">
         <div className="dropdown dropdown-end">
           {sessionData?.user ? (
-            <label
-              tabIndex={0}
-              className="avatar btn btn-circle btn-ghost"
-              onClick={() => {
-                void signOut();
-              }}
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  src={sessionData.user.image!}
-                  alt={sessionData.user.name!}
-                />
-              </div>
-            </label>
+            <>
+              <label tabIndex={0} className="avatar btn btn-circle btn-ghost">
+                <div className=" w-10 rounded-full">
+                  <img
+                    src={sessionData.user.image!}
+                    alt={sessionData.user.name!}
+                  />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu dropdown-content rounded-box z-[1] w-52 bg-base-100 p-2 shadow"
+              >
+                <li
+                  onClick={() => {
+                    void signOut();
+                  }}
+                >
+                  <a>Logout</a>
+                </li>
+              </ul>
+            </>
           ) : (
             <button
               className="btn btn-ghost rounded-btn"
