@@ -1,28 +1,77 @@
-# Create T3 App
+# Master_CP - Competitive Coding Platform
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Master_CP is an online competitive coding platform designed to provide an immersive experience for users to participate in coding competitions, solve challenging problems, and improve their coding skills. Built using Next.js, React, TypeScript, NextAuth, Tailwind CSS with DaisyUI, and TRPC, Master_CP offers a seamless and intuitive environment for coding enthusiasts.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Competitive Coding Challenges**: Participate in a variety of coding challenges to test and enhance your programming skills.
+- **Real-time Judging System**: Get instant feedback on your solutions with our real-time judging system.
+- **User Authentication**: Secure user authentication powered by NextAuth for a seamless login experience.
+- **Responsive Design**: Ensures a consistent and enjoyable experience across different devices and screen sizes.
+- **Dynamic UI**: Built with Tailwind CSS along with DaisyUI for beautiful and customizable UI components.
+- **Efficient Communication**: Utilizes TRPC for efficient communication between the client and server, ensuring fast and reliable performance.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Technologies Used
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- Next.js
+- React
+- TypeScript
+- NextAuth
+- Tailwind CSS with DaisyUI
+- TRPC
+- Vercel (for hosting)
 
-## Learn More
+## Getting Started
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+To get started with Master_CP locally, follow these steps:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+1. Clone the repository:
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+```bash
+git clone https://github.com/amitkrsingh102/master_cp
+```
 
-## How do I deploy this?
+2. Navigate into the project directory:
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+```bash
+cd master_cp
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Run the development server:
+
+```bash
+npm  run  dev
+# or
+yarn  dev
+# or
+pnpm  dev
+# or
+bun  dev
+```
+
+5. Open your browser and visit `http://localhost:3000` to see the application running locally.
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to Master_CP, please fork the repository and submit a pull request with your changes.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- Next.js: https://nextjs.org/
+- React: https://reactjs.org/
+- TypeScript: https://www.typescriptlang.org/
+- NextAuth: https://next-auth.js.org/
+- Vercel: https://vercel.com/
+- Tailwind CSS: https://tailwindcss.com/
+- DaisyUI: https://daisyui.com/
+- TRPC: https://trpc.io/
